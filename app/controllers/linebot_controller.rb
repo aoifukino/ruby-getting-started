@@ -37,12 +37,12 @@ class LinebotController < ApplicationController
                       }
                     ]
                 
-                 message02 = [
+                 message02 = 
                      {
                          type:'text',
                          text:"1"
                      }
-                    ]
+                    
                  client.reply_message(event["replyToken"], message01)
                  client.reply_message(event["replyToken"], message02)
                     # if event.message['text'] =~ /4/
@@ -62,7 +62,7 @@ class LinebotController < ApplicationController
                     #     ]
                     #   client.reply_message(event["replyToken"], message)
                     # end
-              end
+              end #if 31
            end 
          end
         }
