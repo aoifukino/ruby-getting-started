@@ -53,7 +53,6 @@ class LinebotController < ApplicationController
                         # elsif event.message["text"].include?("回答") && event.message["text"].include?("問3")
                         end
                     client.reply_message(event["replyToken"], message)
-              end #if 31
            end 
          end
         }
