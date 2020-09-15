@@ -32,8 +32,8 @@ class LinebotController < ApplicationController
                   message = [
                      {
                         type: 'image',
-                        originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/home/ubuntu/ruby-getting-started/public/q" + card.to_s + ".jpg", 
-                        previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/home/ubuntu/ruby-getting-started/public/q" + card.to_s + ".jpg"
+                        originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
+                        previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
                       }
                     ]
                  client.reply_message(event["replyToken"], message)
@@ -44,4 +44,3 @@ class LinebotController < ApplicationController
    
        head :ok
      end
- end
