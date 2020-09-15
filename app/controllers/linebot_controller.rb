@@ -29,15 +29,23 @@ class LinebotController < ApplicationController
             case event.type
             when Line::Bot::Event::MessageType::Text
               if event.message['text'] =~ /クイズ/
-                  message = [
+                  message01 = [
                      {
                         type: 'image',
                         originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
                         previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
                       }
                     ]
-                 client.reply_message(event["replyToken"], message)
-                    if event.message['text'] =~ /問1:4/
+
+                 message02 = [
+                     {
+                         type:'text',
+                         text:"1"
+                     }
+                    ]
+                 client.reply_message(event["replyToken"], message01)
+                 client.reply_message(event["replyToken"], message02)
+                    if event.message['text'] =~ /4/
                         message = [
                             {
                                 type:'text',
