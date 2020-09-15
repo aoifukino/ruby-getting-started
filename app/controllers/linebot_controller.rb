@@ -21,46 +21,38 @@ class LinebotController < ApplicationController
    
     events = client.parse_events_from(body)
    
-        #card = rand(1..30)
+
         card = 1
         events.each { |event|
          case event
           when Line::Bot::Event::Message
             case event.type
             when Line::Bot::Event::MessageType::Text
-              if event.message['text'] =~ /クイズ/
-                  message01 = [
-                     {
-                        type: 'image',
-                        originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
-                        previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
-                     },
-                     {
-                         type:'text',
-                         text:"1"
-                     }
-                    ]
-            
-                    
-                 client.reply_message(event["replyToken"], message01)
 
-                    # if event.message['text'] =~ /4/
-                    #     message = [
-                    #         {
-                    #             type:'text',
-                    #             text:"ぴんぽーん！"
-                    #         }
-                    #     ]
-                    #   client.reply_message(event["replyToken"], message)
-                    # else
-                    #     message = [
-                    #         {
-                    #             type:'text',
-                    #             text:"ぶっぶー！"
-                    #         }
-                    #     ]
-                    #   client.reply_message(event["replyToken"], message)
-                    # end
+                        if event.message["text"].include?("クイズ")
+                                      message01 = [
+                                {
+                                   type: 'image',
+                                   originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
+                                   previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
+                                 },
+                                {
+                                     type:'text',
+                                     text:"1"
+                                },
+                    
+                               ]
+                        elsif event.message["text"].include?("回答") && event.message["text"].include?("問1")
+                             message01 = [
+                                {
+                                   type: 'image',
+                                   originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/a" + card.to_s + ".jpg", 
+                                   previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/a" + card.to_s + ".jpg"
+                                 }, 
+                        # elsif event.message["text"].include?("回答") && event.message["text"].include?("問2")
+                        # elsif event.message["text"].include?("回答") && event.message["text"].include?("問3")
+                        end
+                    client.reply_message(event["replyToken"], message)
               end #if 31
            end 
          end
