@@ -37,6 +37,23 @@ class LinebotController < ApplicationController
                       }
                     ]
                  client.reply_message(event["replyToken"], message)
+                    if event.message['text'] =~ /問1:4/
+                        message = [
+                            {
+                                type:'text',
+                                text:"ぴんぽーん！"
+                            }
+                        ]
+                       client.reply_message(event["replyToken"], message)
+                    else
+                        message = [
+                            {
+                                type:'text',
+                                text:"ぶっぶー！"
+                            }
+                        ]
+                       client.reply_message(event["replyToken"], message)
+                    end
               end
            end 
          end
