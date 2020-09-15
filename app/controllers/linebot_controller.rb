@@ -34,17 +34,16 @@ class LinebotController < ApplicationController
                         type: 'image',
                         originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
                         previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
-                      }
-                    ]
-                
-                 message02 = 
+                     },
                      {
                          type:'text',
                          text:"1"
                      }
+                    ]
+            
                     
                  client.reply_message(event["replyToken"], message01)
-                 client.reply_message(event["replyToken"], message02)
+
                     # if event.message['text'] =~ /4/
                     #     message = [
                     #         {
