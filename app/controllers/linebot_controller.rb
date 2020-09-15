@@ -30,20 +30,14 @@ class LinebotController < ApplicationController
             when Line::Bot::Event::MessageType::Text
 
                         if event.message["text"].include?("クイズ")
-                                      message01 = [
+                                      message = 
                                 {
                                    type: 'image',
                                    originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg", 
                                    previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
-                                 },
-                                {
-                                     type:'text',
-                                     text:"1"
-                                },
-                    
-                               ]
+                                 }
                         elsif event.message["text"].include?("回答") && event.message["text"].include?("問1")
-                             message01 = 
+                             message = 
                                 {
                                    type: 'image',
                                    originalContentUrl: "https://sleepy-gorge-20285.herokuapp.com/a" + card.to_s + ".jpg", 
