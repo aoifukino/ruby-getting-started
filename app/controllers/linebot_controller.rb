@@ -36,7 +36,7 @@ class LinebotController < ApplicationController
                         previewImageUrl: "https://sleepy-gorge-20285.herokuapp.com/q" + card.to_s + ".jpg"
                       }
                     ]
-
+                
                  message02 = [
                      {
                          type:'text',
@@ -45,23 +45,23 @@ class LinebotController < ApplicationController
                     ]
                  client.reply_message(event["replyToken"], message01)
                  client.reply_message(event["replyToken"], message02)
-                    if event.message['text'] =~ /4/
-                        message = [
-                            {
-                                type:'text',
-                                text:"ぴんぽーん！"
-                            }
-                        ]
-                       client.reply_message(event["replyToken"], message)
-                    else
-                        message = [
-                            {
-                                type:'text',
-                                text:"ぶっぶー！"
-                            }
-                        ]
-                       client.reply_message(event["replyToken"], message)
-                    end
+                    # if event.message['text'] =~ /4/
+                    #     message = [
+                    #         {
+                    #             type:'text',
+                    #             text:"ぴんぽーん！"
+                    #         }
+                    #     ]
+                    #   client.reply_message(event["replyToken"], message)
+                    # else
+                    #     message = [
+                    #         {
+                    #             type:'text',
+                    #             text:"ぶっぶー！"
+                    #         }
+                    #     ]
+                    #   client.reply_message(event["replyToken"], message)
+                    # end
               end
            end 
          end
